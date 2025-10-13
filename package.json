@@ -16,6 +16,7 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.6",
     "bun-types": "latest",
     "drizzle-kit": "^0.31.5"
   },
