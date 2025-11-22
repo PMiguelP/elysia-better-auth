@@ -25,7 +25,7 @@ const getSchema = async () => {
   return _schema;
 };
 
-export const OpenAPI = {
+export const BetterAuthOpenAPI = {
   getPaths: (prefix = '/auth') =>
     getSchema().then(({ paths }) => {
       const reference: typeof paths = Object.create(null);

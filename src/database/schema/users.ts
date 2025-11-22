@@ -16,4 +16,5 @@ export const users = pgTable('users', {
     .$defaultFn(() => new Date())
     .$onUpdate(() => new Date())
     .notNull(),
+  normalizedEmail: text('normalized_email').unique(),
 });

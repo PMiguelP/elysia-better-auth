@@ -1,12 +1,18 @@
 import { betterAuth } from 'better-auth';
 import { drizzleAdapter } from 'better-auth/adapters/drizzle';
 import { openAPI } from 'better-auth/plugins';
+import { emailHarmony } from 'better-auth-harmony';
 import { db } from '@/database/client';
 import { redis } from '@/database/redis';
 
 export const auth = betterAuth({
   basePath: '/auth',
-  plugins: [openAPI()],
+  plugins: [
+    openAPI(),
+    emailHarmony({
+      allowNormalizedSignin: true,
+    }),
+  ],
   database: drizzleAdapter(db, {
     provider: 'pg',
     usePlural: true, //this creates every thing database relates in plural

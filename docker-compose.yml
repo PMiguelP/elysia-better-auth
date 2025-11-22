@@ -19,6 +19,16 @@ services:
     volumes:
       - redis_data:/data
     command: redis-server --appendonly yes
+  
+
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    container_name: bun-auth-jaeger
+    ports:
+      - "16686:16686"  # UI do Jaeger
+      - "4318:4318"    # OTLP HTTP (sua app envia aqui)
+    environment:
+      - COLLECTOR_OTLP_ENABLED=true
 
 volumes:
   postgres_data:
